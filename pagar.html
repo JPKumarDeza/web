@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="icon" href="imagenes/icono.ico"> 
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#"><img src="imagenes/logo.png" alt=""></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Productos.html">Productos</a></li>
+                <li><a href="Ofertas.html">Promociones</a></li>
+                <li><a href="Contactanos.html">Contacto</a></li>
+                <li><a href="Carrito.html">🛒<span>0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="checkout-container">
+            <h2>Pagar y Confirmar Pedido</h2>
+            <div class="checkout-grid">
+                
+                <div class="formulario-envio">
+                    <h3>1. Dirección de Envío</h3>
+                    <form id="formularioEnvio">
+                        <label for="nombre-envio">Nombre Completo:</label>
+                        <input type="text" id="nombre-envio" required>
+                        
+                        <label for="direccion">Dirección Completa:</label>
+                        <input type="text" id="direccion" required>
+                        
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" required>
+                        
+                        <label for="notas">Notas del Pedido (Opcional):</label>
+                        <textarea id="notas" rows="3"></textarea>
+                    </form>
+                </div>
+
+                <div class="pago-resumen">
+                    <h3>2. Método de Pago</h3>
+                    <form id="formularioPago">
+                        <div class="metodo-pago">
+                            <input type="radio" id="tarjeta" name="metodo-pago" value="tarjeta" checked>
+                            <label for="tarjeta">Tarjeta de Crédito/Débito</label>
+                        </div>
+                        <div class="datos-tarjeta">
+                            <label for="numero-tarjeta">Número de Tarjeta:</label>
+                            <input type="text" id="numero-tarjeta" placeholder="XXXX XXXX XXXX XXXX">
+                            
+                            <label for="fecha-vencimiento">Fecha de Vencimiento (MM/AA):</label>
+                            <input type="text" id="fecha-vencimiento" placeholder="MM/AA">
+                            
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" placeholder="123">
+                        </div>
+                        
+                        <div class="metodo-pago">
+                            <input type="radio" id="paypal" name="metodo-pago" value="paypal">
+                            <label for="paypal">PayPal</label>
+                        </div>
+                        
+                        <div class="metodo-pago">
+                            <input type="radio" id="efectivo" name="metodo-pago" value="efectivo">
+                            <label for="efectivo">Pago en Efectivo (Contra Entrega)</label>
+                        </div>
+                    </form>
+
+                    <h3 class="resumen-titulo">3. Resumen del Pedido</h3>
+                    <div class="resumen-detalle">
+                        <p>Items: <span id="resumen-subtotal">$0.00</span></p>
+                        <p>Envío: <span id="resumen-envio">$5.00</span></p>
+                        <hr>
+                        <p class="total">Total: <span id="resumen-total">$5.00</span></p>
+                    </div>
+
+                    <button type="submit" class="btn-enviar" id="btn-confirmar">Confirmar y Pagar</button>
+                    <p id="pago-mensaje" class="mensaje-error"></p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Círculo de Sabores. ¡Disfruta tu pedido!</p>
+    </footer>
+    <script type="module" src="storage.js"></script>
+    <script type="module" src="pago.js"></script>
+</body>
+</html>

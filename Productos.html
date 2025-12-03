@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="imagenes/icono.ico"> 
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#"><img src="imagenes/logo.png" alt=""></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="Productos.html" class="active">Productos</a></li> 
+                <li><a href="Ofertas.html">Promociones</a></li>
+                <li><a href="Contactanos.html">Contacto</a></li>
+                <li><a href="Carrito.html">🛒<span>0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="menu-principal">
+            <h2>Nuestra Deliciosa Selección de Sabores</h2>
+            <p class="introduccion">Hechos con pasión, ingredientes naturales y la promesa de un momento feliz.</p>
+
+            <div class="categoria" id="clasicos">
+                <h3>Sabores Clásicos 🍨</h3>
+                <div class="listado-productos">
+                    
+                    <article class="item-producto" data-id="vainilla-francesa">
+                        <img src="imagenes/vainilla francesa.png" alt="" class="producto-img">
+                        <div class="contenido-card">
+                            <h4>Vainilla Francesa</h4>
+                            <p class="descripcion">Cremosa y sofisticada, con auténtica vainilla de Madagascar.</p>
+                            <span class="precio" data-precio="3.00">S/.3.00 (6 cubos)</span>
+                        </div>
+                        <button class="btn-comprar" data-producto-id="vainilla-francesa">Añadir al Carrito</button>
+                    </article>
+
+                    <article class="item-producto" data-id="chocolate-intenso">
+                        <img src="imagenes/chocolate intenso.png" alt="" class="producto-img">
+                        <div class="contenido-card">
+                            <h4>Chocolate Intenso 70%</h4>
+                            <p class="descripcion">Para los amantes del cacao, con un sabor profundo y sin azúcar añadida.</p>
+                            <span class="precio" data-precio="3.50">S/.2.50 (6 cubos)</span>
+                        </div>
+                        <button class="btn-comprar" data-producto-id="chocolate-intenso">Añadir al Carrito</button>
+                    </article>
+                    
+                    <article class="item-producto" data-id="sorbete-fresa">
+                        <img src="imagenes/fresa y leche natural.png" alt="" class="producto-img">
+                        <div class="contenido-card">
+                            <h4>Fresa y cacao Natural</h4>
+                            <p class="descripcion">El sorbete favorito, súper refrescante y hecho con fruta fresca de temporada.</p>
+                            <span class="precio" data-precio="3.00">S/.3.00 (6 cubos)</span>
+                        </div>
+                        <button class="btn-comprar" data-producto-id="sorbete-fresa">Añadir al Carrito</button>
+                    </article>
+
+                </div>
+            </div>
+            
+            <div class="categoria" id="veganos">
+                <h3>Opciones Veganas y Sin Lactosa </h3>
+                <div class="listado-productos">
+                    
+                    <article class="item-producto" data-id="coco-almendra">
+                        <img src="imagenes/coco y almendra.png" alt="" class="producto-img">
+                        <div class="contenido-card">
+                            <h4>Coco y Almendra</h4>
+                            <p class="descripcion">Base de leche de coco, dulce y tropical. 100% vegano.</p>
+                            <span class="precio" data-precio="4.00">S/.4.00 (6 cubos)</span>
+                        </div>
+                        <button class="btn-comprar" data-producto-id="coco-almendra">Añadir al Carrito</button>
+                    </article>
+
+                    <article class="item-producto" data-id="sorbete-mango">
+                        <img src="imagenes/mango.png" alt="" class="producto-img">
+                        <div class="contenido-card">
+                            <h4>Sorbete de Mango</h4>
+                            <p class="descripcion">Refrescante y sin lácteos. ¡Puro sabor a verano!</p>
+                            <span class="precio" data-precio="3.50">S/.3.50 (6 cubos)</span>
+                        </div>
+                        <button class="btn-comprar" data-producto-id="sorbete-mango">Añadir al Carrito</button>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Círculo de Sabores. Para pedidos grandes, por favor <a href="contacto.html">contáctanos</a>.</p>
+    </footer>
+    
+    <script type="module" src="js/storage.js"></script> 
+    <script type="module" src="js/productos.js"></script>
+</body>
+</html>
