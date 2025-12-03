@@ -1,0 +1,746 @@
+
+:root {
+    --color-principal: #8c002c;     /* Cereza Intenso (Títulos, acentos, marca) */
+    --color-secundario: #ff708c;  /* Rosa Vibrante (Precios, botones de compra) */
+    --color-fondo-claro: #f7f7f7;   /* Fondo de página */
+    --color-fondo-header: #e9838860;  /* Rosa pastel para el encabezado */
+    --color-tarjeta: #ffffff;       /* Fondo de tarjetas de producto */
+    --color-texto: #333;            /* Texto oscuro principal */
+    --color-detalle: #666;          /* Texto secundario/descripciones */
+}
+
+/* ================================================= */
+/* 1. Reset Básico y Tipografía                      */
+/* ================================================= */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-principal);
+}
+
+main {
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--color-secundario);
+    width: fit-content;
+    margin: 0 auto 30px auto;
+}
+
+.introduccion {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-detalle);
+    margin-bottom: 40px;
+}
+
+
+/* ================================================= */
+/* 2. HEADER y Navegación                            */
+/* ================================================= */
+header {
+    background-color: var(--color-fondo-header); 
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 4px solid var(--color-secundario);
+}
+
+/* --- ESTILOS DEL LOGO --- */
+.logo img {
+    /* Tamaño por defecto para PC/Escritorio */
+    width: 150px; 
+    height: auto; 
+    display: block;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-principal);
+    padding: 10px 12px;
+    display: block;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    font-size: 0.9em; 
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--color-principal);
+    color: var(--color-tarjeta);
+}
+
+/* ================================================= */
+/* 3. Diseño de Botones Generales                    */
+/* ================================================= */
+.btn-comprar {
+    display: block; 
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 12px 0;
+    margin-top: auto; 
+    border-radius: 0 0 10px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.btn-comprar:hover {
+    background-color: var(--color-principal);
+}
+
+.btn-principal,
+.btn-enviar {
+    display: inline-block;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+    border: none; /* Asegurar que no haya borde por defecto */
+    cursor: pointer;
+}
+
+.btn-principal:hover,
+.btn-enviar:hover {
+    background-color: var(--color-principal);
+}
+
+
+/* ================================================= */
+/* 4. DISEÑO DE TIENDA VIRTUAL: PRODUCTOS y OFERTAS  */
+/* ================================================= */
+
+.categoria {
+    margin-bottom: 50px;
+}
+
+.categoria h3 {
+    font-size: 2em;
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+/* Contenedor principal del Grid (usado en Productos y en secciones de Ofertas) */
+.listado-productos,
+.promociones {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto en móvil */
+    gap: 25px; 
+}
+
+/* Estilo para la Tarjeta de Producto/Oferta */
+.item-producto,
+.oferta {
+    background-color: var(--color-tarjeta);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 0; 
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden; 
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; 
+    padding-bottom: 50px; 
+    height: auto;
+}
+
+.item-producto:hover,
+.oferta:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.producto-img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    display: block;
+}
+
+.contenido-card {
+    padding: 15px;
+}
+
+.item-producto h4,
+.oferta h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.4em;
+}
+
+.descripcion {
+    font-size: 0.9em;
+    color: var(--color-detalle);
+    margin-bottom: 10px;
+}
+
+.precio {
+    display: block;
+    font-size: 1.6em;
+    color: var(--color-principal); 
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Estilos para la página de OFERTAS (promociones.html) */
+.oferta {
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.oferta h3 {
+    color: var(--color-principal);
+}
+
+.oferta.destacada {
+    background-color: var(--color-principal);
+    color: white;
+    border: 3px solid var(--color-secundario);
+    padding: 30px;
+}
+
+.oferta.destacada h3 {
+    color: white;
+}
+
+.btn-oferta {
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.oferta.destacada .btn-oferta {
+    background-color: white;
+    color: var(--color-principal);
+}
+
+
+/* ================================================= */
+/* 5. FOOTER                                         */
+/* ================================================= */
+footer {
+    background-color: var(--color-texto);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--color-secundario);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+
+/* ================================================= */
+/* 7. ESTILOS ESPECÍFICOS DE INICIO (Inicio.html)    */
+/* ================================================= */
+
+/* SECCIÓN HERO (Banner Principal) */
+.hero {
+    background-color: var(--color-secundario);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero h2 {
+    color: white;
+    font-size: 2.5em; 
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.hero .btn-principal {
+    display: inline-block;
+    background-color: white;
+    color: var(--color-principal);
+    border: 2px solid var(--color-principal);
+    font-size: 1.1em;
+}
+
+.hero .btn-principal:hover {
+    background-color: var(--color-principal);
+    color: white;
+    border-color: white;
+}
+
+/* SECCIÓN CARACTERÍSTICAS (3 Columnas) */
+.caracteristicas {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.caracteristicas h3 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.caracteristicas > div {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    gap: 30px;
+}
+
+.caracteristica-item {
+    background-color: var(--color-tarjeta);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid var(--color-secundario);
+}
+
+.caracteristica-item h4 {
+    color: var(--color-principal);
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+/* ================================================= */
+/* 8. Estilos para el Carrito y Pago (Checkout)      */
+/* ================================================= */
+
+/* Contenedores Principales */
+.carrito-container,
+.checkout-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--color-tarjeta);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para Carrito Vacío */
+.carrito-vacio {
+    text-align: center;
+    padding: 50px;
+    border: 2px dashed var(--color-secundario);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.carrito-vacio p {
+    font-size: 1.5em;
+    color: var(--color-principal);
+    font-weight: bold;
+}
+
+/* Estilo de los Ítems en el Carrito */
+.lista-items {
+    margin-bottom: 30px;
+}
+
+/* Nota: Se han cambiado las clases en el HTML de Carrito.html para acoplar con este JS */
+.item-carrito {
+    display: flex; /* Usamos flex para mejor control en móvil */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap; /* Permite que los elementos salten de línea en móvil */
+}
+
+.item-carrito .info-producto {
+    flex: 1 1 50%; /* Ocupa al menos la mitad del ancho disponible */
+    padding-right: 15px;
+}
+
+.item-carrito h4 {
+    margin: 0;
+    font-size: 1.1em;
+    color: var(--color-principal);
+}
+
+.item-carrito p {
+    margin: 5px 0;
+    font-weight: 500;
+    color: var(--color-detalle);
+    font-size: 0.9em;
+}
+
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 0 0 auto; /* No crecerá */
+}
+
+.controles-cantidad .btn-cantidad {
+    background-color: var(--color-fondo-claro);
+    border: 1px solid var(--color-detalle);
+    color: var(--color-principal);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.controles-cantidad .cantidad {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.precio-total-item {
+    font-weight: bold;
+    color: var(--color-secundario);
+    font-size: 1.1em;
+    flex: 0 0 15%; /* Ocupa 15% del espacio */
+    text-align: right;
+}
+
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-principal);
+    font-size: 0.9em;
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    margin-top: 5px;
+    padding: 0;
+}
+
+.btn-eliminar:hover {
+    opacity: 1;
+}
+
+/* Resumen del Carrito y Pago */
+.resumen-carrito,
+.resumen-detalle {
+    padding: 20px;
+    border: 1px solid var(--color-fondo-header);
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: var(--color-fondo-claro);
+}
+
+.resumen-carrito h3,
+.resumen-detalle h3 {
+    color: var(--color-principal);
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.resumen-carrito p,
+.resumen-detalle p {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    margin: 8px 0;
+}
+
+.total {
+    font-size: 1.4em !important;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+/* Estilos de Checkout (Pagar.html) */
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Columna única en móvil */
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.formulario-envio,
+.pago-resumen {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    background-color: var(--color-tarjeta);
+}
+
+.pago-resumen {
+    background-color: var(--color-fondo-header);
+}
+
+.formulario-envio input,
+.formulario-envio textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Importante para el width: 100% */
+}
+
+.formulario-envio label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+.metodo-pago {
+    margin: 15px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--color-texto);
+}
+
+.datos-tarjeta input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Botón de Confirmar y Pagar */
+#btn-confirmar {
+    width: 100%;
+    margin-top: 30px;
+    padding: 18px;
+    background-color: var(--color-principal);
+}
+
+#btn-confirmar:hover {
+    background-color: var(--color-secundario);
+}
+
+/* Mensaje de error/éxito */
+.mensaje-error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+/* ================================================= */
+/* 6. RESPONSIVIDAD (Media Queries)                  */
+/* ================================================= */
+
+/* Tabletas (Mínimo 600px de ancho) */
+@media (min-width: 600px) {
+    .listado-productos,
+    .promociones {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    nav ul li a {
+        font-size: 1em; 
+    }
+
+    .caracteristicas > div {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tabletas y Móviles Grandes (Máximo 768px de ancho) */
+@media (max-width: 768px) {
+    
+    /* 1. Ajuste del Header y Logo (Corregido para móvil) */
+    header {
+        padding: 10px 15px;
+        /* Asegura que el carrito quede a la derecha del logo si es posible */
+        justify-content: space-between; 
+    }
+
+    /* TAMAÑO MÁS PEQUEÑO Y SEGURO PARA MÓVIL */
+    .logo img {
+        width: 80px; 
+        height: 80px; 
+        object-fit: contain;
+    }
+    
+    /* Pequeña adaptación al menú para que no rompa el header */
+    nav ul li a {
+        padding: 8px 6px;
+        font-size: 0.8em;
+    }
+
+    /* 2. Ajuste de Elementos de Página */
+    main {
+        padding: 15px 3%; /* Menos padding lateral para usar más espacio */
+    }
+    
+    .producto-img {
+        height: 150px; /* Reducimos la altura de las imágenes de producto */
+    }
+
+    /* 3. Ajuste del Carrito (Mejora de la visualización en flex) */
+    .item-carrito {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        align-items: flex-start;
+        padding: 10px 0;
+    }
+
+    .item-carrito .info-producto {
+        flex: none;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .controles-cantidad {
+        margin-top: 10px;
+    }
+    
+    .precio-total-item {
+        margin-top: 10px;
+        text-align: left;
+        font-size: 1.2em;
+    }
+}
+
+
+/* PCs de Escritorio (Mínimo 992px de ancho) */
+@media (min-width: 992px) {
+    .listado-productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .promociones {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .producto-img {
+        height: 250px;
+    }
+
+    .hero {
+        padding: 100px 50px;
+    }
+    
+    .hero h2 {
+        font-size: 3.5em;
+    }
+
+    .caracteristicas > div {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .checkout-grid {
+        grid-template-columns: 3fr 2fr; /* Formulario de envío más grande que el resumen */
+    }
+
+    /* ================================================= */
+/* 7. ESTILOS ESPECÍFICOS DE INICIO (Continuación)   */
+/* ================================================= */
+
+.mision-vision {
+    /* Contenedor principal: usa Flexbox para colocar los dos divs lado a lado */
+    display: flex;
+    gap: 30px; /* Espacio entre las cajas de Misión y Visión */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px 5%; /* Padding lateral y vertical, ajustado a los márgenes de main */
+    background-color: var(--color-fondo-header); /* Usa el color pastel del header como fondo de la sección */
+    border-radius: 10px;
+}
+
+.mision,
+.vision {
+    flex: 1; /* Distribuye el espacio equitativamente (50% cada uno) */
+    padding: 25px;
+    border-radius: 10px;
+    background-color: var(--color-tarjeta); /* Fondo blanco, como las tarjetas de producto */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    transition: transform 0.3s;
+}
+
+.mision:hover,
+.vision:hover {
+    transform: translateY(-3px); /* Efecto sutil al pasar el mouse */
+}
+
+.mision h3,
+.vision h3 {
+    /* Estilo coherente con los títulos principales (Cereza Intenso) */
+    color: var(--color-principal); 
+    border-bottom: 3px solid var(--color-secundario); /* Línea de color vibrante debajo */
+    padding-bottom: 8px;
+    margin-top: 0;
+    font-size: 1.7em;
+    text-align: center; /* Centramos el título */
+}
+
+.mision p,
+.vision p {
+    color: var(--color-texto);
+    font-size: 1.05em;
+    text-align: justify; /* Justificamos el texto para mejor lectura */
+}
+
+
+/* ================================================= */
+/* RESPONSIVIDAD (Asegurando que se apilen en móvil) */
+/* ================================================= */
+
+@media (max-width: 768px) {
+    .mision-vision {
+        flex-direction: column; /* Apila los elementos en una sola columna en móvil */
+        gap: 20px;
+        padding: 20px 3%; /* Ajustamos el padding para ganar espacio en móvil */
+    }
+}
+
+}
